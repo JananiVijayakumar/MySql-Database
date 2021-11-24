@@ -40,3 +40,11 @@ select * from Employee_payroll;
 |  3 | PQR  | 35K    | 12/12/1992 |
 +----+------+--------+------------+
 3 rows in set (0.00 sec)
+
+mysql> select salary from employee_payroll WHERE name = 'XYZ';
++--------+
+| salary |
++--------+
+| 20K    |
++--------+
+1 row in set (0.00 sec)
