@@ -21,3 +21,12 @@ Database changed
 
 mysql> create table Employee_payroll(id int not null auto_increment, name varchar(150), salary varchar(150), Start_date varchar(50), primary key(id));
 Query OK, 0 rows affected (0.12 sec)
+
+mysql> insert into Employee_payroll(name, salary, Start_date)values("XYZ", "20K", "01/07/1999");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Employee_payroll(name, salary, Start_date)values("ABC", "30K", "15/5/2002");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Employee_payroll(name, salary, Start_date)values("PQR", "35K", "12/12/1992");
+Query OK, 1 row affected (0.01 sec)
