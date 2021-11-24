@@ -30,3 +30,13 @@ Query OK, 1 row affected (0.01 sec)
 
 mysql> insert into Employee_payroll(name, salary, Start_date)values("PQR", "35K", "12/12/1992");
 Query OK, 1 row affected (0.01 sec)
+
+select * from Employee_payroll;
++----+------+--------+------------+
+| id | name | salary | Start_date |
++----+------+--------+------------+
+|  1 | XYZ  | 20K    | 01/07/1999 |
+|  2 | ABC  | 30K    | 15/5/2002  |
+|  3 | PQR  | 35K    | 12/12/1992 |
++----+------+--------+------------+
+3 rows in set (0.00 sec)
