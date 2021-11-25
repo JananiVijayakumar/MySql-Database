@@ -1,23 +1,45 @@
-mysql> CREATE DATABASE payroll_services;
+mysql> ALTER TABLE Employee_payroll ADD Gender varchar(20);
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from Employee_payroll;
++----+------+--------+------------+--------+
+| id | name | salary | Start_date | Gender |
++----+------+--------+------------+--------+
+|  1 | XYZ  | 20K    | 01/07/1999 | NULL   |
+|  2 | ABC  | 30K    | 15/5/2002  | NULL   |
+|  3 | PQR  | 35K    | 12/12/1992 | NULL   |
++----+------+--------+------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> UPDATE Employee_payroll set gender = "M" WHERE name = "XYZ";
 Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
 
-mysql> show databases;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| janu               |
-| mysql              |
-| payroll_services   |
-| performance_schema |
-| sakila             |
-| sys                |
-| world              |
-+--------------------+
-8 rows in set (0.01 sec)
+mysql> select * from Employee_payroll;
++----+------+--------+------------+--------+
+| id | name | salary | Start_date | Gender |
++----+------+--------+------------+--------+
+|  1 | XYZ  | 20K    | 01/07/1999 | M      |
+|  2 | ABC  | 30K    | 15/5/2002  | NULL   |
+|  3 | PQR  | 35K    | 12/12/1992 | NULL   |
++----+------+--------+------------+--------+
+3 rows in set (0.00 sec)
 
-mysql> use payroll_services;
-Database changed
+mysql> UPDATE Employee_payroll set gender = "M" WHERE name = "PQR";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
 
-mysql> create table Employee_payroll(id int not null auto_increment, name varchar(150), salary varchar(150), Start_date varchar(50), primary key(id));
-Query OK, 0 rows affected (0.12 sec)
+mysql> UPDATE Employee_payroll set gender = "F" WHERE name = "ABC";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Employee_payroll;
++----+------+--------+------------+--------+
+| id | name | salary | Start_date | Gender |
++----+------+--------+------------+--------+
+|  1 | XYZ  | 20K    | 01/07/1999 | M      |
+|  2 | ABC  | 30K    | 15/5/2002  | F      |
+|  3 | PQR  | 35K    | 12/12/1992 | M      |
++----+------+--------+------------+--------+
+3 rows in set (0.00 sec)
