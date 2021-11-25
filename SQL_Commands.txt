@@ -121,3 +121,131 @@ mysql> SELECT MAX(salary) AS HighestSalary FROM Employee_payroll;
 | 45K           |
 +---------------+
 1 row in set (0.00 sec)
+
+mysql> ALTER TABLE Employee_payroll ADD PhoneNumber int(10);
+Query OK, 0 rows affected, 1 warning (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> ALTER TABLE Employee_payroll ADD Address varchar(100);
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE Employee_payroll ADD Department varchar(100) NOT NULL;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from Employee_payroll;
++----+--------+--------+------------+--------+-------------+---------+------------+
+| id | name   | salary | Start_date | Gender | PhoneNumber | Address | Department |
++----+--------+--------+------------+--------+-------------+---------+------------+
+|  1 | XYZ    | 20K    | 01/07/1999 | M      |        NULL | NULL    |            |
+|  2 | ABC    | 30K    | 15/5/2002  | F      |        NULL | NULL    |            |
+|  3 | PQR    | 35K    | 12/12/1992 | M      |        NULL | NULL    |            |
+|  4 | janu   | 40K    | 01/07/1999 | F      |        NULL | NULL    |            |
+|  5 | Herose | 45K    | 06/09/1999 | M      |        NULL | NULL    |            |
+|  6 | sri    | 40K    | 15/09/2002 | F      |        NULL | NULL    |            |
+|  7 | Ram    | 15k    | 07/01/2000 | M      |        NULL | NULL    |            |
++----+--------+--------+------------+--------+-------------+---------+------------+
+7 rows in set (0.00 sec)
+
+mysql> UPDATE Employee_payroll SET  Department = 'HR' WHERE id = 1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE Employee_payroll SET  Department = 'AHR' WHERE id = 2;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE Employee_payroll SET  Department = 'Manager' WHERE id = 3;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE Employee_payroll SET  Department = 'Assistant Manager' WHERE id = 4;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE Employee_payroll SET  Department = 'Cashier' WHERE id = 5;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE Employee_payroll SET  Department = 'Part timer' WHERE id = 6;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE Employee_payroll SET  Department = 'Part timer' WHERE id = 7;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Employee_payroll;
++----+--------+--------+------------+--------+-------------+---------+-------------------+
+| id | name   | salary | Start_date | Gender | PhoneNumber | Address | Department        |
++----+--------+--------+------------+--------+-------------+---------+-------------------+
+|  1 | XYZ    | 20K    | 01/07/1999 | M      |        NULL | NULL    | HR                |
+|  2 | ABC    | 30K    | 15/5/2002  | F      |        NULL | NULL    | AHR               |
+|  3 | PQR    | 35K    | 12/12/1992 | M      |        NULL | NULL    | Manager           |
+|  4 | janu   | 40K    | 01/07/1999 | F      |        NULL | NULL    | Assistant Manager |
+|  5 | Herose | 45K    | 06/09/1999 | M      |        NULL | NULL    | Cashier           |
+|  6 | sri    | 40K    | 15/09/2002 | F      |        NULL | NULL    | Part timer        |
+|  7 | Ram    | 15k    | 07/01/2000 | M      |        NULL | NULL    | Part timer        |
++----+--------+--------+------------+--------+-------------+---------+-------------------+
+7 rows in set (0.00 sec)
+
+mysql> ALTER TABLE Employee_payroll CHANGE PhoneNumber phoneNumber varchar(10);
+Query OK, 7 rows affected (0.11 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> select * from Employee_payroll;
++----+--------+--------+------------+--------+-------------+---------+-------------------+
+| id | name   | salary | Start_date | Gender | phoneNumber | Address | Department        |
++----+--------+--------+------------+--------+-------------+---------+-------------------+
+|  1 | XYZ    | 20K    | 01/07/1999 | M      | NULL        | NULL    | HR                |
+|  2 | ABC    | 30K    | 15/5/2002  | F      | NULL        | NULL    | AHR               |
+|  3 | PQR    | 35K    | 12/12/1992 | M      | NULL        | NULL    | Manager           |
+|  4 | janu   | 40K    | 01/07/1999 | F      | NULL        | NULL    | Assistant Manager |
+|  5 | Herose | 45K    | 06/09/1999 | M      | NULL        | NULL    | Cashier           |
+|  6 | sri    | 40K    | 15/09/2002 | F      | NULL        | NULL    | Part timer        |
+|  7 | Ram    | 15k    | 07/01/2000 | M      | NULL        | NULL    | Part timer        |
++----+--------+--------+------------+--------+-------------+---------+-------------------+
+7 rows in set (0.00 sec)
+
+mysql> UPDATE Employee_payroll set phoneNumber = "9876543210" WHERE name = "XYZ";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE Employee_payroll set phoneNumber = "8907654321" WHERE name = "ABC";
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE Employee_payroll set phoneNumber = "7908654321" WHERE name = "PQR";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE Employee_payroll set phoneNumber = "7908612345" WHERE name = "janu";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE Employee_payroll set phoneNumber = "9123456780" WHERE name = "Herose";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE Employee_payroll set phoneNumber = "0987654321" WHERE name = "sri";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE Employee_payroll set phoneNumber = "6789054321" WHERE name = "Ram";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Employee_payroll;
++----+--------+--------+------------+--------+-------------+---------+-------------------+
+| id | name   | salary | Start_date | Gender | phoneNumber | Address | Department        |
++----+--------+--------+------------+--------+-------------+---------+-------------------+
+|  1 | XYZ    | 20K    | 01/07/1999 | M      | 9876543210  | NULL    | HR                |
+|  2 | ABC    | 30K    | 15/5/2002  | F      | 8907654321  | NULL    | AHR               |
+|  3 | PQR    | 35K    | 12/12/1992 | M      | 7908654321  | NULL    | Manager           |
+|  4 | janu   | 40K    | 01/07/1999 | F      | 7908612345  | NULL    | Assistant Manager |
+|  5 | Herose | 45K    | 06/09/1999 | M      | 9123456780  | NULL    | Cashier           |
+|  6 | sri    | 40K    | 15/09/2002 | F      | 0987654321  | NULL    | Part timer        |
+|  7 | Ram    | 15k    | 07/01/2000 | M      | 6789054321  | NULL    | Part timer        |
++----+--------+--------+------------+--------+-------------+---------+-------------------+
+7 rows in set (0.00 sec)
