@@ -249,3 +249,27 @@ mysql> select * from Employee_payroll;
 |  7 | Ram    | 15k    | 07/01/2000 | M      | 6789054321  | NULL    | Part timer        |
 +----+--------+--------+------------+--------+-------------+---------+-------------------+
 7 rows in set (0.00 sec)
+
+//Add Terisa in Sales and Marketing department
+
+mysql> insert into Employee_payroll(name, salary, Start_date, Gender, PhoneNumber, Address, Department)values("Terissa", "30K", "30/12/1992", "F", "1234567890", "HFR", "Sales");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Employee_payroll(name, salary, Start_date, Gender, PhoneNumber, Address, Department)values("Terissa", "20K", "28/02/1996", "F", "1234098765", "IHG", "Marketing");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from employee_payroll;
++----+---------+--------+------------+--------+-------------+---------+-------------------+
+| id | name    | salary | Start_date | Gender | phoneNumber | Address | Department        |
++----+---------+--------+------------+--------+-------------+---------+-------------------+
+|  1 | XYZ     | 20K    | 01/07/1999 | M      | 9876543210  | NULL    | HR                |
+|  2 | ABC     | 30K    | 15/5/2002  | F      | 8907654321  | NULL    | AHR               |
+|  3 | PQR     | 35K    | 12/12/1992 | M      | 7908654321  | NULL    | Manager           |
+|  4 | janu    | 40K    | 01/07/1999 | F      | 7908612345  | NULL    | Assistant Manager |
+|  5 | Herose  | 45K    | 06/09/1999 | M      | 9123456780  | NULL    | Cashier           |
+|  6 | sri     | 40K    | 15/09/2002 | F      | 0987654321  | NULL    | Part timer        |
+|  7 | Ram     | 15k    | 07/01/2000 | M      | 6789054321  | NULL    | Part timer        |
+|  8 | Terissa | 30K    | 30/12/1992 | F      | 1234567890  | HFR     | Sales             |
+|  9 | Terissa | 20K    | 28/02/1996 | F      | 1234098765  | IHG     | Marketing         |
++----+---------+--------+------------+--------+-------------+---------+-------------------+
+9 rows in set (0.00 sec)
